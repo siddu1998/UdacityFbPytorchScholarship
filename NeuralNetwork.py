@@ -35,3 +35,28 @@ bias_2=torch.randn(10)
 hidden_output=activation(torch.mm(inputs,weights_hidden)+bias_1)
 out = torch.mm(hidden_output,weights_final)+bias2 
 
+def softmax(x):
+    ## TODO: Implement the softmax function here
+    torch.exp(x)/torch.sum(torch.exp(e),dim=1).view(64,1)
+
+probabilities = softmax(out)
+print(probabilities.shape)
+print(probabilities.sum(dim=1))
+
+class NeuralNetwork(nn.module):
+  def __init__(self):
+    super().__init__()
+    self.hidden=nn.Linear(784,256)
+    self.output=nn.Linear(256,10)
+    self.sigmoid=nn.Sigmoind()
+    self.softmax=nn.Softmax(dim=1)
+    
+    
+    def forward(self,x):
+        x = self.hidden(x)
+        x = self.sigmoid(x)
+        
+        x = self.output(x)
+        x = self.softmax(x)
+        
+        return x
