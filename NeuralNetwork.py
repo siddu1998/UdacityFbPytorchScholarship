@@ -33,5 +33,5 @@ weights_final=torch.randn(256,10)
 bias_1=torch.randn(256)
 bias_2=torch.randn(10)
 hidden_output=activation(torch.mm(inputs,weights_hidden)+bias_1)
-
+out = torch.mm(hidden_output,weights_final)+bias2 
 
